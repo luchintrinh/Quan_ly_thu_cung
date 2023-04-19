@@ -17,6 +17,7 @@ export_file.addEventListener("click", function (e) {
 });
 
 import_file.addEventListener("click", function (e) {
+  // Cần sửa phần import;
   if (!input_file.value) {
     alert("Vui lòng chọn file muốn import!");
   } else {
