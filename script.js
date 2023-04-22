@@ -67,6 +67,9 @@ let petsManagement = {
     typeInput.addEventListener("change", function (e) {
       _this.renderBreed();
     });
+    // healthhy pet
+
+    this.healthyPet();
   },
   renderPetsData: function (petArr) {
     pets.innerHTML = "";
@@ -216,19 +219,20 @@ let petsManagement = {
   // Show healthy pet table
 
   healthyPet: function () {
+    let _this = this;
     let healthyCheck = true;
     healthyBtn.addEventListener("click", function () {
       if (healthyCheck) {
         // pet khỏe mạnh
-        healthyPetArr = petArr.filter(function (element) {
+        let healthyPetArr = petArr.filter(function (element) {
           return element.vaccinated && element.dewormed && element.sterilized;
         });
-        renderTableData(healthyPetArr);
-        healthyBtn.textContent = "Show Healthy Pet";
+        _this.renderPetsData(healthyPetArr);
+        healthyBtn.textContent = "Show all pets";
         healthyCheck = false;
       } else {
-        renderTableData(petArr);
-        healthyBtn.textContent = "Show All Pet";
+        _this.renderPetsData(petArr);
+        healthyBtn.textContent = "Show Healthy Pet";
         healthyCheck = true;
       }
     });
